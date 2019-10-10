@@ -1,0 +1,307 @@
+.mui-bar-nav
+{
+	background-color: #CC3131;
+}
+.mui-bar-nav h1
+{
+	color: #fff;
+	font-family: "微软雅黑";
+	font-size: 16px;
+}
+.mui-bar-nav a
+{
+	color: #fff;
+}
+.mui-bar-tab .mui-tab-item.mui-active
+{
+	color: #CC3131 ;
+}
+/*首页显示*/
+/*首页上方的横向滚动条*/
+body
+{
+	background: #fff;
+}
+#nav-w
+{
+	background-color: #CC3131 ;
+	overflow: hidden;/*清除浮动*/
+	color:#fff;
+}
+#slierSegmentedControl
+{
+	float:left;
+	width:90%;
+}
+
+#nav-w .mui-segmented-control.mui-segmented-control-inverted .mui-control-item{
+	font-size: 13px;
+	padding: 0px 10px;
+}
+#nav-w .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+	font-size: 14px;
+	color: #fff;
+	padding: 0px 10px;
+}
+/*导航栏右侧小图标*/
+#right-icon
+{
+	float:left;
+	width:10%;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+}
+#right-icon span
+{
+	font-size: 18px;
+}
+/*首页新闻样式*/
+.sy
+{
+	padding: 0px 10px;
+	background: #fff;
+}
+.sy-a
+{
+	overflow: hidden;
+	padding: 5px 0px;
+	border-bottom: 1px solid #f0f0f0;
+}
+.sy-a-l
+{
+	float:left;
+	width: 65%;
+}
+.sy-a-r
+{
+	float:left;
+	width: 35%;
+}
+.sy-a-l h4{
+	font-size: 20px;
+	font-family: "微软雅黑";
+	margin-top: 20px;
+}
+.sy-a-l p span
+{
+	font-size:12px;
+	padding: 0px 3px;
+	color: #888;
+}
+.sy-a-r img
+{
+	width: 100%;
+}
+/*第二个种新闻格式*/
+.sy-b
+{
+	padding: 5px 0px;
+	border-bottom: 1px solid #f0f0f0;
+}
+.sy-b h4
+{
+	font-family: "微软雅黑";
+	font-size: 20px;
+}
+.sy-b img
+{
+	width: 32%;
+	padding: 1px;
+	height: 110px;
+}
+.sy-b p span
+{
+	font-size: 12px;
+	color: #888;
+	padding: 0px 3px ;
+}
+.sy-c{
+	padding: 5px 0px ;
+	border-bottom: 1px solid #f0f0f0;
+}
+.sy-c h4{
+	font-family: "微软雅黑";
+	font-size: 20px;
+}
+.sy-c img
+{
+	width: 100%;
+	height: 200px;
+}
+/*添加频道页面*/
+.wdpd
+{
+	padding: 10px;
+	background: #fff;
+}
+.wdpd span
+{
+	background: #f0f0f0;
+	width: 23%;
+	display: inline-block;
+	margin: 5px 1%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 10px ;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #333;
+}
+.tjpd
+{
+	padding: 10px;
+	background: #fff;
+}
+.tjpd span
+{
+	width: 23%;
+	display: inline-block;
+	margin: 5px 1%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 10px ;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #333;
+	border:1px solid #CACACA;
+	box-shadow: 0px 0px 1px #CACACA;
+}
+/*新闻详情页面*/
+.xiangqing-a{
+	padding: 0px 10px;
+	background-color: #fff;
+}
+.xiangqing-a img
+{
+	width: 100%;
+}
+.xiangqing-b{
+	padding: 0px 10px;	
+	overflow: hidden;
+	background: #fff;
+}
+.xiangqing-b-l
+{
+	float:left;
+}
+.xiangqing-b-l img
+{
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+}
+.xiangqing-b-r
+{
+	float:left;
+	padding-left: 10px;
+}
+.xiangqing-b-r h6
+{
+	color: #5071A1;
+	font-size:14px;
+}
+/*显示评论*/
+.xiangqing-b-r p{
+	font-size: 18px;
+	color: #000;
+}
+.xiangqing-b-r span
+{
+	font-size:12px;
+	color: #ccc;
+}
+/*输入评论部分*/
+.xiangqing-c{
+	padding: 0px 10px;
+}
+.xiangqing-c-l{
+	float:left;
+	width: 60%;
+}
+.xiangqing-c-l input{
+	border-radius: 20px;
+	background: #ddd;
+}
+.xiangqing-c-r{
+	float:left;
+	width: 40%;
+	text-align: center;
+}
+.xiangqing-c-r span{
+	width: 30%;
+}
+/*视频*/
+.shipin video{
+	width: 100%;
+	height: 200px;
+	
+}
+.shipin span
+{
+	padding: 0px 10px;
+}
+/*我的（new)页面*/
+.userinfo{
+	text-align: center;
+	padding-top: 30px;
+}
+.userinfo img{
+	width: 80px;
+	height: 80px;
+	border-radius: 50px;
+}
+.userinfo h4{
+	font-family: "微软雅黑";
+	font-size:12px;
+}
+.gridnine
+{
+	background: #fff;
+}
+.singlegrid
+{
+	float:left;
+	border-right: 1px solid #CACACA;
+	border-bottom: 1px solid #CACACA;
+	padding: 20px 0px;
+	text-align: center;
+}
+/*我的-登录、注册*/
+.login-form
+{
+	margin-top: 50px;
+}
+.login-form .mui-input-row input
+{
+	font-size:13px;
+}
+.login-btn
+{
+	margin-top: 20px;
+	padding: 0px 20px;
+}
+.login-btn button
+{
+	background: #CC3131;
+	color: #fff;
+	width: 100%;
+}
+.login-btn p{
+	margin: 10px 0px 0px;
+}
+.login-btn p a{
+	color: #888;
+	font-size:13px;
+}
+/*获取验证码按钮*/
+.btn-send
+{
+	position:absolute;
+	right:0px;
+	top:3px;
+	border:0px;
+	color: #CC3131;
+}
