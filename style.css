@@ -1,0 +1,105 @@
+.mui-bar-nav
+{
+	background-color: #3E3E3E;
+	box-shadow: 0 0px 0px #F00;
+}
+.box{
+	background: #3E3E3E;
+	overflow: hidden;
+}
+.userinfo
+{
+	background: #3E3E3E;
+	overflow: hidden;
+	padding: 10px;
+}
+.userinfo img{
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	float:left;
+}
+.userinfo h4{
+	color: #fff;
+	float:left;
+	position: relative;
+	top:10px;
+	left:10px;
+}
+.userinfo span{
+	color: #fff;
+	float:right;
+	position: relative;
+	top:10px;
+	font-size:20px;
+}
+.threebtn div{
+	float:left;
+	width: 33.33%;
+	text-align: center;
+	position: relative;
+	padding: 10px;
+}
+.threebtn div span
+{
+	font-size:12px;
+	color: #8A8A8A;
+	font-family: "微软雅黑";
+}
+.threebtn div span label
+{
+	font-size:14px;
+	color: #fff;
+	font-family: "微软雅黑";
+}
+.midbtn
+{
+	overflow: hidden;
+	background-color: #fff;
+}
+.midbtn div
+{
+	float:left;
+	width: 33.33%;
+	text-align: center;
+	position: relative;
+	padding: 10px;
+}
+.c1
+{
+	color:orange;
+}
+.c2
+{
+	color: #FBBBCC;
+}
+.c3
+{
+	color: lightblue;
+}
+.lists
+{
+	position: relative;
+	top:10px;
+}
+.lists ul
+{
+	margin-bottom: 10px;
+	font-size: 15px;
+	font-family: "微软雅黑";
+}
+.redbadge1
+{
+	position: relative !important; 
+	left:20px;
+}
+.righttext
+{
+	font-size:12px;
+	color: #888;
+	position: absolute;
+	right: 40px;
+}
+.a1{
+	margin-top: 10px;
+}
