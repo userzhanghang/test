@@ -1,0 +1,111 @@
+1.3 安装MySQL
+1.3.1 文件上传
+1.3.2 检测是否已经安装，如果安装过则需要卸载
+
+[root@itluma software]# rpm -qa|grep mysql
+mysql-libs-5.1.66-2.el6_3.x86_64
+[root@itluma software]# rpm -e --nodeps mysql-libs-5.1.66-2.el6_3.x86_64
+
+1.3.3 解压缩到/usr/local目录中
+[root@itluma software]# tar -zxvf mysql-5.7.27-linux-glibc2.12-x86_64.tar.gz  -C /usr/local/
+
+将原来的文件名修改成mysql
+[root@itluma local]# mv mysql-5.7.27-linux-glibc2.12-x86_64/ mysql
+
+1.3.4 创建mysql组及mysql用户
+[root@itluma local]# groupadd mysql
+[root@itluma local]# useradd -r -g mysql mysql
+
+1.3.5 创建data目录，用来存储数据
+[root@itluma mysql]# pwd
+/usr/local/mysql
+[root@itluma mysql]# mkdir data
+[root@itluma mysql]# ll
+total 56
+drwxr-xr-x.  2 root root   4096 Oct  9 05:24 bin
+-rw-r--r--.  1 7161 31415 17987 Jun 10 10:43 COPYING
+drwxr-xr-x.  2 root root   4096 Oct  9 05:28 data
+drwxr-xr-x.  2 root root   4096 Oct  9 05:24 docs
+drwxr-xr-x.  3 root root   4096 Oct  9 05:24 include
+drwxr-xr-x.  5 root root   4096 Oct  9 05:24 lib
+drwxr-xr-x.  4 root root   4096 Oct  9 05:24 man
+-rw-r--r--.  1 7161 31415  2478 Jun 10 10:43 README
+drwxr-xr-x. 28 root root   4096 Oct  9 05:24 share
+drwxr-xr-x.  2 root root   4096 Oct  9 05:24 support-files
+
+1.3.6修改mysql文件的角色
+[root@itluma local]# chown -R mysql:mysql mysql/
+
+1.3.7初始化安装Mysql数据库
+[root@itluma mysql]# ./bin/mysqld --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --initialize
+2019-10-09T09:31:35.192918Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2019-10-09T09:31:35.515653Z 0 [Warning] InnoDB: New log files created, LSN=45790
+2019-10-09T09:31:35.586973Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
+2019-10-09T09:31:35.673550Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 96653ad4-ea77-11e9-9a14-000c29cd798c.
+2019-10-09T09:31:35.675003Z 0 [Warning] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+2019-10-09T09:31:35.678298Z 1 [Note] A temporary password is generated for root@localhost: ZydtQp?bj8UG
+
+1.3.8 在/etc目录下创建一个my.cnf配置文件
+[mysqld]
+character_set_server=utf8
+init_connect='SET NAMES utf8'
+basedir=/usr/local/mysql
+datadir=/usr/local/mysql/data
+socket=/usr/local/mysql/mysql.sock
+
+#设置忽略大小写(简单来说就是sql语句是否严格)，默认库名表名保存为小写, 不区分大小写
+lower_case_table_names=1
+
+#开启ip绑定
+bind-address=0.0.0.0
+
+[mysqld_safe]
+log-error=/var/log/mysqld.log
+pid-file=/usr/local/mysql/data/mysqld.pid
+
+#指定客户端连接mysql时的socket通信文件路径
+[client]
+socket=/usr/local/mysql/mysql.sock
+default-character-set=utf8
+
+1.3.9 配置开机自动启动mysql服务
+[root@itluma mysql]# cp ./support-files/mysql.server /etc/init.d/mysqld
+之后需要修改mysqld文件中的内容
+
+basedir=/usr/local/mysql
+datadir=/usr/local/mysql/data
+
+[root@itluma mysql]# chkconfig --add mysqld
+
+1.3.10 配置mysql服务的环境变量
+修改/etc/profile文件，添加如下内容
+
+export PATH=$PATH:/usr/local/mysql/bin
+
+立即生效
+[root@itluma bin]# source /etc/profile
+
+1.3.11 启动mysql服务
+[root@itluma ~]# service mysqld start
+Starting MySQL.                                            [  OK  ]
+
+查看系统进程
+[root@itluma ~]# ps -ef|grep mysqld
+查看端口占用
+[root@itluma ~]# netstat -an|grep 3306
+
+1.3.12 访问mysql
+默认root用户的密码就是在安装mysql时提供的临时密码
+[root@itluma ~]# mysql -uroot -p
+
+
+登录进来后第一步，先修改root用户的密码
+mysql> alter user 'root'@'localhost' identified by '123456';
+
+mysql> use mysql
+mysql> update user set user.Host='%' where user.User='root';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  flush privileges;
+Query OK, 0 rows affected (0.00 sec)
